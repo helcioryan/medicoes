@@ -1,0 +1,22 @@
+import plotly
+import pandas as pd
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
+import numpy as np
+fig = make_subplots(rows=1, cols=1)
+
+bd = pd.read_csv("https://raw.githubusercontent.com/helcioryan/med1/main/Medi%C3%A7%C3%A3o.txt")
+
+
+fig.add_trace(go.Bar(x=bd['Date/Time'], y=bd['0144341825 - Volts A-N'], name='Fase a',))
+
+
+fig.update_xaxes(showgrid=False, gridwidth=1, gridcolor='black',
+                showline=True, linewidth=5, linecolor='black',
+                range=[0,6],
+
+)
+
+fig.update_yaxes(showgrid=False, gridwidth=1, gridcolor='black',)
+
+fig.show()
